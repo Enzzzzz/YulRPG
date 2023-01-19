@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Viking",
+        "id": "viking",
+        "description": "Viking é uma das classes primárias deste RPG, ele pode ter uma alta taxa de dano quanto de defesa, suas habilidades podem aumentar ainda mais seus status.",
+        "skills": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin"],
+        "ultimate": "Berserker",
+        "ultimatedesc": "Ao usar sua ultimate, o Viking entra no modo Berserker e recupera parte da sua vida, o dano causado e a sua armadura aumentam drasticamente. Ele também pode recuperar vida [5%]",
+        "weapons": ["Machado", "Escudo"],
+        "ultStat": 0,
+        "icon": "https://cdn.discordapp.com/attachments/1064628217689935902/1064628239395467374/Viking_IMG.jpg",
+        "stats": {
+        "hp": 30,
+        "hpperlevel": 9,
+        "mp": 0,
+        "mpperlevel": 0,
+        "armor": 10,
+        "armorperlevel": 5,
+        "attackdamage": 8,
+        "attackdamageperlevel": 5
+        }
+    },
+    {
+        "name": "Arqueiro",
+        "id": "arqueiro",
+        "description": "Arqueiro é uma das classes primárias deste RPG. Por causa de sua velocidade, ele pode atacar duas vezes antes de seu oponente atacar.",
+        "skills": ["Rajada de Flechas", "Chuva de Flechas", "Flecha cegueira"],
+        "ultimate": "Flecha de Luz",
+        "ultimatedesc": "Dispara uma flecha gigante contra seu oponente que cai um **Feiche de Luz** sobre ele causando dnao [100 + Dano do Personagem]. Ele ficará stunado por duas rodadas.",
+        "weapons": ["Arco"],
+        "ultStat": 0,
+        "icon": "https://cdn.discordapp.com/attachments/1064628217689935902/1064998648309633044/Arqueiro_Icon.jpg",
+        "stats": {
+        "hp": 20,
+        "hpperlevel": 7,
+        "mp": 15,
+        "mpperlevel": 7,
+        "armor": 5,
+        "armorperlevel": 3,
+        "attackdamage": 5,
+        "attackdamageperlevel": 9
+        }
+    },
+    {
+        "name": "Samurai",
+        "id": "samurai",
+        "description": "A jornada de um samurai é longa e difícil. Ele é muito rapido com seus pés e se esconde nas sombras, um pequeno erro em sua frente pode custar a vida. Samurai é uma das classes do RPG, ela tem uma alta taxa de dano por causa das suas habilidades e o maior dano base de todas as classes.",
+        "skills": ["Corte Sombrio", "Avançada", "Corte Triplo"],
+        "ultimate": "Espada do Imperador",
+        "ultimatedesc": "Ao usar essa habilidade, causa feridas profundas em seu oponente [7% do dano a cada rodada]. O dano de seus ataques e habilidades aumentam por algumas rodadas",
+        "weapons": ["Katana"],
+        "ultStat": 0,
+        "icon": "https://cdn.discordapp.com/attachments/1064628217689935902/1065009108933161021/Samurai_Icon.jpg",
+        "stats": {
+        "hp": 20,
+        "hpperlevel": 6,
+        "mp": 20,
+        "mpperlevel": 7,
+        "armor": 4,
+        "armorperlevel": 4,
+        "attackdamage": 15,
+        "attackdamageperlevel": 7
+        }
+    },
+    {
+        "name": "Paladino",
+        "id": "paladino",
+        "description": "Um guerreiro divino e justo enviado para combater todas as forças ruins do mundo. O Paladino é uma classe que possui muitos buffs, a maioria de suas skills fortalecem a si mesmo.",
+        "skills": ["Martelo Sagrado", "Luz Divina", "Guerreiro da Luz"],
+        "ultimate": "Tempestade Divina",
+        "ultimatedesc": "Um raio divino cai sobre o oponente causando dano. O oponente recebe dano e defesa reduzidos, você se cura a cada rodada e tem seus status aumentados.",
+        "weapons": ["Martelo", "Escudo"],
+        "ultStat": 0,
+        "icon": "https://cdn.discordapp.com/attachments/1010423711326810193/1065055338417631232/Enzzzzz_Sword_and_Shield_purple_line_draw_Icon_with_black_backg_ef94c56d-fb2d-4f67-ba66-7074f3409fa0.png",
+        "stats": {
+        "hp": 45,
+        "hpperlevel": 11,
+        "mp": 40,
+        "mpperlevel": 11,
+        "armor": 13,
+        "armorperlevel": 5,
+        "attackdamage": 8,
+        "attackdamageperlevel": 3
+        }
+    },
+    {
+        "name": "Demon Slayer",
+        "id": "demonslayer",
+        "description": "Um humano que foi possuido por um demônio. Devido a grande força de sua alma, conseguiu subjulgar o demônio e controlar sua força e agora usa isso a seu favor para limpar todos os monstros do mundo. O Demon Slayer é uma classe baseada em dano, todas as suas habilidades causam uma grande quantidade de dano a seu oponente.",
+        "skills": ["Execução", "Avanço das Trevas", "Sanguessuga da Alma"],
+        "ultimate": "Forma Demoníaca",
+        "ultimatedesc": "Se transforma em um dêmonio. Quando ativo, sua aura causa medo a seus inimigos e todas as suas habilidades recebem dano aumentado e roubo de vida.",
+        "weapons": ["Espada"],
+        "ultStat": 0,
+        "icon": "https://media.discordapp.net/attachments/1010423711326810193/1065061936716337213/Enzzzzz_Purple_Demon_Mask_with_a_Sword_Icon_with_black_backgrou_d673b8fd-467d-4e7b-b3cb-2f154c2ffa55.png?width=473&height=473",
+        "stats": {
+        "hp": 30,
+        "hpperlevel": 5,
+        "mp": 0,
+        "mpperlevel": 0,
+        "armor": 6,
+        "armorperlevel": 3,
+        "attackdamage": 15,
+        "attackdamageperlevel": 8
+        }
+    }
+]

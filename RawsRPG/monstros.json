@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Globin",
+        "id": "goblin",
+        "level": 1,
+        "description": "Viking é uma das classes primárias deste RPG, ele pode ter uma alta taxa de dano quanto de defesa, suas habilidades podem aumentar ainda mais seus status.",
+        "skills": [""],
+        "icon": "https://cdn.discordapp.com/attachments/1064628217689935902/1065333535809998978/grid_0.png",
+        "stats": {
+            "hp": 10,
+            "hpPL": 2,
+            "armor": 10,
+            "armorPL": 2,
+            "dano": 1,
+            "danoPL": 1
+        }
+    }
+]
