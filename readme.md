@@ -19,7 +19,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Comando para iniciar o jogo
 - [ ] Distribuição de pontos de habilidade ao passar de nível
 - [ ] Lista de habilidades desbloqueadas com nível
- ...
+- [ ] ...
 
 ## 🚀 Instalando YulRPG
 
@@ -30,7 +30,7 @@ Windows:
 git init
 git clone https://github.com/Enzzzzz/YulRPG.git
 ```
-* Utilize `cd Bot-Slash-v14` para entrar na pasta caso tenha dado clone
+* Utilize `cd YulRPG` para entrar na pasta caso tenha dado clone
 * Baixe as dependências com `npm install`
 * Crie um arquivo chamado `.env` e configure-o
 * Se você utiliza MongoDB, configure em `./Events/ready.js`
