@@ -36,138 +36,6 @@ module.exports = {
             return interaction.reply({ embeds: [Morto] })
         }
 
-        // function atacar(
-        //     danoP,
-        //     monstroNome,
-        //     monstroLvl,
-        //     monstroIcon,
-        //     monstroVidaAtual,
-        //     monstroVidaMax,
-        //     monstroBarraHp,
-        //     playerVidaAtual,
-        //     playerVidaMax,
-        //     playerBarraHp,
-        //     playerMan,
-        //     playerManMax,
-        //     playerDmg,
-        //     monstroDmg,
-        //     playerDef,
-        //     monstroDef
-        // ) {
-
-
-
-        //     if (monstroDef >= 10 && monstroDef < 19) {
-        //         monstroDef = 0.10
-        //     }
-        //     if (monstroDef >= 20 && monstroDef < 29) {
-        //         monstroDef = 0.20
-        //     }
-        //     if (monstroDef >= 30 && monstroDef < 39) {
-        //         monstroDef = 0.30
-        //     }
-        //     if (monstroDef <= 9) {
-        //         monstroDef = 0.09
-        //     }
-
-        //     let dmgCalc = playerDmg * monstroDef
-        //     let dmg = playerDmg - dmgCalc
-        //     dmg = Math.round(dmg)
-
-        //     monstroVidaAtual = monstroVidaAtual - dmg
-        //     let vidaMonstro = hpMonstro100
-
-        //     p9 = monstroVidaMax * 0.9
-        //     p8 = monstroVidaMax * 0.8
-        //     p7 = monstroVidaMax * 0.7
-        //     p6 = monstroVidaMax * 0.6
-        //     p5 = monstroVidaMax * 0.5
-        //     p4 = monstroVidaMax * 0.4
-        //     p3 = monstroVidaMax * 0.3
-        //     p2 = monstroVidaMax * 0.2
-        //     p1 = monstroVidaMax * 0.1
-
-        //     if (monstroVidaAtual >= p9) {
-        //         vidaMonstro = hpMonstro90
-        //     } else if (monstroVidaAtual >= p8 && monstroVidaAtual < p9) {
-        //         vidaMonstro = hpMonstro80
-        //     } else if (monstroVidaAtual >= p7 && monstroVidaAtual < p8) {
-        //         vidaMonstro = hpMonstro70
-        //     } else if (monstroVidaAtual >= p6 && monstroVidaAtual < p7) {
-        //         vidaMonstro = hpMonstro60
-        //     } else if (monstroVidaAtual >= p5 && monstroVidaAtual < p6) {
-        //         vidaMonstro = hpMonstro50
-        //     } else if (monstroVidaAtual >= p4 && monstroVidaAtual < p5) {
-        //         vidaMonstro = hpMonstro40
-        //     } else if (monstroVidaAtual >= p3 && monstroVidaAtual < p4) {
-        //         vidaMonstro = hpMonstro30
-        //     } else if (monstroVidaAtual >= p2 && monstroVidaAtual < p3) {
-        //         vidaMonstro = hpMonstro20
-        //     } else if (monstroVidaAtual >= p1 && monstroVidaAtual < p2) {
-        //         vidaMonstro = hpMonstro10
-        //     }
-        //     if (monstroVidaAtual <= 0) {
-        //         return interaction.editReply({ embeds: [termino], content: `${interaction.user}`, components: [] })
-        //     }
-
-
-
-        //     if (user.hpatual >= p9) {
-        //         vidaPlayer = hpPlayer90
-        //     }else if (user.hpatual >= p8 && user.hpatual < p9) {
-        //         vidaPlayer = hpPlayer80
-        //     }else if (user.hpatual >= p7 && user.hpatual < p8) {
-        //         vidaPlayer = hpPlayer70
-        //     }else if (user.hpatual >= p6 && user.hpatual < p7) {
-        //         vidaPlayer = hpPlayer60
-        //     }else if (user.hpatual >= p5 && user.hpatual < p6) {
-        //         vidaPlayer = hpPlayer50
-        //     }else if (user.hpatual >= p4 && user.hpatual < p5) {
-        //         vidaPlayer = hpPlayer40
-        //     }else if (user.hpatual >= p3 && user.hpatual < p4) {
-        //         vidaPlayer = hpPlayer30
-        //     }else if (user.hpatual >= p2 && user.hpatual < p3) {
-        //         vidaPlayer = hpPlayer20
-        //     }else if (user.hpatual >= p1 && user.hpatual < p2) {
-        //         vidaPlayer = hpPlayer10
-        //     }
-        //     if (user.hpatual <= 0) {
-        //         return interaction.editReply({ embeds: [derrota], content: `${interaction.user}`, components: []}),
-        //         UsersRPG.findOneAndUpdate({
-        //             id: interaction.user.id
-        //         }, { $set: { "vivo": false } } )
-        //     }
-
-        //         UsersRPG.findOneAndUpdate({
-        //              id: interaction.user.id
-        //          }, { $set: { "hpatual": user.hpatual - dmgPlayer } } )
-
-
-        //     let atk1 = new Discord.EmbedBuilder()
-        //         .setTitle(`Você atacou e causou ${dmg} de dano em ${monstroNome}!`)
-        //         .setDescription(`Você está lutando contra um ${monstroNome} nivel ${monstroLvl} `)
-        //         .setThumbnail(monstroIcon)
-        //         .addFields(
-        //             {
-        //                 name: `${monstroNome}`,
-        //                 value: `<:lvl:1065418053170499698> **Nível:** \`${monstroLvl}\` `,
-        //                 inline: false,
-        //             },
-        //             {
-        //                 name: `Vida ${monstroNome}`,
-        //                 value: `**Vida:** \`${monstroVidaAtual}/${monstroVidaMax}\`\n${vidaMonstro}`,
-        //                 inline: true
-        //             },
-        //             {
-
-        //                 name: 'Seus Status',
-        //                 value: `**Vida:** \`${playerVidaAtual}/${playerVidaMax}\`\n${vidaPlayer}\n\`${playerMan}/${playerManMax}\``,
-        //                 inline: true
-        //             }
-        //         )
-        //         .setFooter({ text: `Turno: ${interaction.user.username}` })
-
-        // }
 
         const Lutar = new Discord.ActionRowBuilder()
             .addComponents(
@@ -207,18 +75,22 @@ module.exports = {
 
             );
 
+        
+        let monstroInfo = rawMonstros[Math.floor(Math.random()*rawMonstros.length)]
+
+
 
         //MONSTRO STATS
 
         let multiplicadorLevel = Math.floor(Math.random() * 10) + 1
 
         let monstroLevel = multiplicadorLevel
-        let monstroHpMax = rawMonstros[0].stats.hp + (rawMonstros[0].stats.hpPL * multiplicadorLevel)
-        let monstroHpAtual = rawMonstros[0].stats.hp + (rawMonstros[0].stats.hpPL * multiplicadorLevel)
-        let monstroArmor = rawMonstros[0].stats.armor + (rawMonstros[0].stats.armorPL * multiplicadorLevel)
-        let monstroDano = rawMonstros[0].stats.dano + (rawMonstros[0].stats.danoPL * multiplicadorLevel)
+        let monstroHpMax = monstroInfo.stats.hp + (monstroInfo.stats.hpPL * multiplicadorLevel)
+        let monstroHpAtual = monstroInfo.stats.hp + (monstroInfo.stats.hpPL * multiplicadorLevel)
+        let monstroArmor = monstroInfo.stats.armor + (monstroInfo.stats.armorPL * multiplicadorLevel)
+        let monstroDano = monstroInfo.stats.dano + (monstroInfo.stats.danoPL * multiplicadorLevel)
 
-        let monstroEncontrado = rawMonstros[0].name
+        let monstroEncontrado = monstroInfo.name
 
         let hpMonstro100 = ':red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square:'
         let hpMonstro90 = ':red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::white_large_square:'
@@ -275,9 +147,7 @@ module.exports = {
 
 
 
-        let termino = new Discord.EmbedBuilder()
-            .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
-            .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
+        
 
         let derrota = new Discord.EmbedBuilder()
             .setTitle(`:skull: Você Morreu!`)
@@ -287,7 +157,7 @@ module.exports = {
         let monstro = new Discord.EmbedBuilder()
             .setTitle(`Você encontrou um ${monstroEncontrado} nivel ${monstroLevel}!`)
             .setDescription('Você encontrou um Goblin, deseja lutar?')
-            .setThumbnail(rawMonstros[0].icon)
+            .setThumbnail(monstroInfo.icon)
             .addFields(
                 {
                     name: `${monstroEncontrado}`,
@@ -389,7 +259,7 @@ module.exports = {
                             let aceito = new Discord.EmbedBuilder()
                                 .setTitle(`Você aceitou a luta!`)
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
-                                .setThumbnail(rawMonstros[0].icon)
+                                .setThumbnail(monstroInfo.icon)
                                 .addFields(
                                     {
                                         name: `${monstroEncontrado}`,
@@ -485,10 +355,6 @@ module.exports = {
                             } else if (monstroHpAtual <= 0) {
                                 vidaMonstro = hpMonstro0
                             }
-                            
-
-                            
-
 
                             // await RpgStats.findOneAndUpdate({
                             //     id: interaction.user.id
@@ -574,7 +440,7 @@ module.exports = {
                             let atk1 = new Discord.EmbedBuilder()
                                 .setTitle(`Você atacou e causou ${dmg} de dano em ${monstroEncontrado}!`)
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
-                                .setThumbnail(rawMonstros[0].icon)
+                                .setThumbnail(monstroInfo.icon)
                                 .addFields(
                                     {
                                         name: `${monstroEncontrado}`,
@@ -596,6 +462,11 @@ module.exports = {
                                 .setFooter({ text: `Turno: ${interaction.user.username}` })
 
                                 if (monstroHpAtual <= 0) {
+
+                                    let termino = new Discord.EmbedBuilder()
+                                        .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
+                                        .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
+
                                     return interaction.editReply({ embeds: [atk1], content: `${interaction.user}`, components: [] }),
                                     setTimeout(() => { interaction.editReply({ embeds: [termino], content: `${interaction.user}`, components: [] }) }, 2000)
                                 }
@@ -698,9 +569,9 @@ module.exports = {
 
 
                             let def = new Discord.EmbedBuilder()
-                                .setTitle(`${monstroEncontrado} te atacou e causou ${dmgCalcPlayer} de dano!`)
+                                .setTitle(`${monstroEncontrado} te atacou e causou ${dmgPlayer} de dano!`)
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
-                                .setThumbnail(rawMonstros[0].icon)
+                                .setThumbnail(monstroInfo.icon)
                                 .addFields(
                                     {
                                         name: `${monstroEncontrado}`,
@@ -749,7 +620,7 @@ module.exports = {
                             let atk2 = new Discord.EmbedBuilder()
                                 .setTitle(`Sua vez, ataque novamente!`)
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
-                                .setThumbnail(rawMonstros[0].icon)
+                                .setThumbnail(monstroInfo.icon)
                                 .addFields(
                                     {
                                         name: `${monstroEncontrado}`,

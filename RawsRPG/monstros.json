@@ -14,5 +14,21 @@
             "dano": 1,
             "danoPL": 1
         }
+    },
+    {
+        "name": "Orc da Floresta",
+        "id": "orc",
+        "level": 1,
+        "description": "Viking é uma das classes primárias deste RPG, ele pode ter uma alta taxa de dano quanto de defesa, suas habilidades podem aumentar ainda mais seus status.",
+        "skills": [""],
+        "icon": "https://cdn.discordapp.com/attachments/1064628217689935902/1066090460059283487/Enzzzzzz_Forest_Orc_Raining_Blue_Tone_Pixel_Art_21fa69b8-a39c-4e30-9df7-82487608bc86.png",
+        "stats": {
+            "hp": 18,
+            "hpPL": 3,
+            "armor": 22,
+            "armorPL": 4,
+            "dano": 3,
+            "danoPL": 1
+        }
     }
 ]
