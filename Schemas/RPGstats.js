@@ -4,15 +4,15 @@ const mongoose = require("mongoose");
 
 const RpgStats = new mongoose.Schema({
     id: { type: String, required: true },
-    monstro: { type: String },
-    monstroIcone: { Type: String },
-    monstroLevel: { type: Number },
-    monstroHpBar: { Type: String },
-    monstroTotalHP: { type: Number },
-    monstroHpAtual: { Type: Number },
-    monstroArmor: { type: Number },
-    monstroDano: { type: Number },
-    turn: { Type: Boolean }
+    monstro: { type: String, default: "" },
+    monstroFoto: { Type: String, default: "" },
+    monstroLevel: { type: Number, default: 0 },
+    monstroHpBar: { Type: String, default: "" },
+    monstroTotalHP: { type: Number, default: 0 },
+    monstroHpSave: { Type: Number, default: 0 },
+    monstroArmor: { type: Number, default: 0 },
+    monstroDano: { type: Number, default: 0 },
+    turno: { Type: Boolean }
 })
 
-module.exports = mongoose.model("PlayingRPG", RpgStats);
+module.exports = mongoose.model("rpgsave", RpgStats);

@@ -7,6 +7,7 @@ const usersRPG = new mongoose.Schema({
   discordName: { type: String },
   classe: { type: String },
   status: { type: Boolean, default: false },
+  vivo: { type: Boolean, default: true },
 
 
   buff: { type: String, default: "" },
