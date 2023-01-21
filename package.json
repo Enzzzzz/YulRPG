@@ -1,5 +1,5 @@
 {
-  "name": "YulRPG",
+  "name": "yulrpg",
   "version": "1.0.0",
   "description": "YulBot RPG Version.",
   "main": "src/index.js",
