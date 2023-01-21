@@ -13,10 +13,12 @@
                 "cooldown": 3,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skill2": {
@@ -29,7 +31,8 @@
                 "cooldown": 7,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
                     "type": "stun",
@@ -51,7 +54,8 @@
                     "multiplicador": 0.20
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
@@ -73,10 +77,12 @@
                 "cooldown": 3,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skill2": {
@@ -89,7 +95,8 @@
                 "cooldown": 7,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
                     "type": "stun",
@@ -111,7 +118,8 @@
                     "multiplicador": 0.20
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
@@ -133,10 +141,12 @@
                 "cooldown": 3,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skill2": {
@@ -149,7 +159,8 @@
                 "cooldown": 7,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
                     "type": "stun",
@@ -171,7 +182,8 @@
                     "multiplicador": 0.20
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
@@ -193,10 +205,12 @@
                 "cooldown": 3,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skill2": {
@@ -209,7 +223,8 @@
                 "cooldown": 7,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
                     "type": "stun",
@@ -231,7 +246,8 @@
                     "multiplicador": 0.20
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
@@ -253,10 +269,12 @@
                 "cooldown": 3,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skill2": {
@@ -269,7 +287,8 @@
                 "cooldown": 7,
                 "icon": "",
                 "buff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 },
                 "debuff": {
                     "type": "stun",
@@ -291,7 +310,8 @@
                     "multiplicador": 0.20
                 },
                 "debuff": {
-                    "type": "none"
+                    "type": "none",
+                    "duration": 0
                 }
             },
             "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
