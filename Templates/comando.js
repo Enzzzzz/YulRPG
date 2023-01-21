@@ -7,7 +7,7 @@ module.exports = {
     userPerms: [], // Permissões necessárias para o usuário usar o comando. Ex: ["KickMembers"]
     botPerms: [], // Permissões necessárias para o bot usar o comando. Ex: ["KickMembers"]
     ownerOnly: true, // Se o comando é limitado ao criador da aplicação. ( ID salvo no .env )
-    run: async (client, interaction) => {
-        // A função a ser executada quando o comando é chamado.
+    run: async (_client, _interaction) => {
+      // A função a ser executada quando o comando é chamado.
     },
-};
+  };
