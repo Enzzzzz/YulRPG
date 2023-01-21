@@ -1,13 +1,14 @@
 {
-  "name": "bot",
+  "name": "YulRPG",
   "version": "1.0.0",
-  "description": "Base em slash v14.",
-  "main": "index.js",
+  "description": "YulBot RPG Version.",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node.",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "dzxtw#2666",
+  "author": "Enzzzzz#6007",
   "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.3.0",
@@ -17,5 +18,13 @@
     "dotenv": "^16.0.3",
     "mongoose": "^6.8.4",
     "ms": "^2.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "2.8.3"
   }
 }

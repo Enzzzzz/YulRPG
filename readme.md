@@ -26,19 +26,12 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 Para instalar a <YulRPG>, siga estas etapas:
 
 Windows:
+
 ```
 git init
 git clone https://github.com/Enzzzzz/YulRPG.git
 ```
-* Utilize `cd YulRPG` para entrar na pasta caso tenha dado clone
-* Baixe as dependências com `npm install`
-* Crie um arquivo chamado `.env` e configure-o
-* Se você utiliza MongoDB, configure em `./Events/ready.js`
 
-.env
-```
-TOKEN=token do bot.
-CLIENT_ID=id do bot.
-GUILD_ID=id do servidor ou deixe vazio.
-OWNER=id do dono.
-```
+- Utilize `cd YulRPG` para entrar na pasta caso tenha dado clone
+- Baixe as dependências com `npm install`
+- Copie o `.env.example` para `.env` e configure-o
