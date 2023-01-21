@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const mongoose = require('mongoose')
-const { Schema } = mongoose;
-const { ActionRowBuilder, ButtonBuilder, ApplicationCommandType } = require("discord.js");
+const { ApplicationCommandType } = require("discord.js");
 const UsersGlobal = require('../../Schemas/UserGlobal')
 const UsersRPG = require("../../Schemas/UserRPG");
 const rawMonstros = require("../../RawsRPG/monstros.json")
@@ -20,34 +19,22 @@ module.exports = {
             id: interaction.user.id
         });
 
-        let Morto = new Discord.EmbedBuilder()
-            .setTitle(":skull: Você está morto!")
-            .setDescription(`Você morreu para um [ x ] level [ x ] e não pode lutar agora, você deve estar vivo para jogar novamente!`)
-
-        let unregistred = new Discord.EmbedBuilder()
-            .setTitle(":x: Ops, você não está registrado no meu RPG!")
-            .setDescription(`Para registrar digite /rpgstart e escolha a sua classe.`)
-
         if (!user) {
+            let unregistred = new Discord.EmbedBuilder()
+                .setTitle(":x: Ops, você não está registrado no meu RPG!")
+                .setDescription(`Para registrar digite /rpgstart e escolha a sua classe.`)
             return interaction.reply({ embeds: [unregistred] })
         }
 
         if (user.vivo === false) {
+            let Morto = new Discord.EmbedBuilder()
+                .setTitle(":skull: Você está morto!")
+                .setDescription(`Você morreu para um [ x ] level [ x ] e não pode lutar agora, você deve estar vivo para jogar novamente!`)
             return interaction.reply({ embeds: [Morto] })
         }
 
 
-        const Lutar = new Discord.ActionRowBuilder()
-            .addComponents(
-                new Discord.ButtonBuilder()
-                    .setCustomId('lutar')
-                    .setLabel('Lutar!')
-                    .setStyle(3),
-                new Discord.ButtonBuilder()
-                    .setCustomId('fugir')
-                    .setLabel('Fugir')
-                    .setStyle(4)
-            );
+
 
         const lutando = new Discord.ActionRowBuilder()
             .addComponents(
@@ -75,10 +62,8 @@ module.exports = {
 
             );
 
-        
-        let monstroInfo = rawMonstros[Math.floor(Math.random()*rawMonstros.length)]
 
-
+        let monstroInfo = rawMonstros[Math.floor(Math.random() * rawMonstros.length)]
 
         //MONSTRO STATS
 
@@ -103,8 +88,6 @@ module.exports = {
         let hpMonstro20 = ':red_square::red_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:'
         let hpMonstro10 = ':red_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:'
         let hpMonstro0 = ':white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:'
-
-
         //PLAYER STATS
 
         let playerLevel = user.rpgLevel
@@ -140,14 +123,8 @@ module.exports = {
 
 
 
-        xp = Math.floor(Math.random() * 20) + 1
-        moeda = Math.floor(Math.random() * 20) + 1
-
-
-
-
-
-        
+        let xp = Math.floor(Math.random() * 20) + 1
+        let moeda = Math.floor(Math.random() * 20) + 1
 
         let derrota = new Discord.EmbedBuilder()
             .setTitle(`:skull: Você Morreu!`)
@@ -173,6 +150,17 @@ module.exports = {
 
 
         if (!RPG) {
+            const Lutar = new Discord.ActionRowBuilder()
+                .addComponents(
+                    new Discord.ButtonBuilder()
+                        .setCustomId('lutar')
+                        .setLabel('Lutar!')
+                        .setStyle(3),
+                    new Discord.ButtonBuilder()
+                        .setCustomId('fugir')
+                        .setLabel('Fugir')
+                        .setStyle(4)
+                );
             await interaction.reply({ embeds: [monstro], content: `${interaction.user}`, components: [Lutar], fetchReply: true })
                 .then(async (message) => {
                     const filtro = (i) => i.user.id === interaction.user.id;
@@ -198,7 +186,7 @@ module.exports = {
 
                             if (user.hpatual === user.hpmax) {
                                 vidaPlayer = hpPlayer100
-                            }else if (user.hpatual >= p9) {
+                            } else if (user.hpatual >= p9) {
                                 vidaPlayer = hpPlayer90
                             } else if (user.hpatual >= p8 && user.hpatual < p9) {
                                 vidaPlayer = hpPlayer80
@@ -229,12 +217,12 @@ module.exports = {
                             m5 = user.manamax * 0.5
                             m4 = user.manamax * 0.4
                             m3 = user.manamax * 0.3
-                            p2 = user.manamax * 0.2
+                            m2 = user.manamax * 0.2
                             m1 = user.manamax * 0.1
 
                             if (user.manaatual === user.manamax) {
                                 manaPlayer = manaPlayer100
-                            }else if (user.manaatual >= m9) {
+                            } else if (user.manaatual >= m9) {
                                 manaPlayer = manaPlayer90
                             } else if (user.manaatual >= m8 && user.manaatual < m9) {
                                 manaPlayer = manaPlayer80
@@ -376,7 +364,7 @@ module.exports = {
 
                             if (user.manaatual === user.manamax) {
                                 manaPlayer2 = manaPlayer100
-                            }else if (user.manaatual >= m9) {
+                            } else if (user.manaatual >= m9) {
                                 manaPlayer2 = manaPlayer90
                             } else if (user.manaatual >= m8 && user.manaatual < m9) {
                                 manaPlayer2 = manaPlayer80
@@ -412,7 +400,7 @@ module.exports = {
 
                             if (user.hpatual === user.hpmax) {
                                 vidaPlayer = hpPlayer100
-                            }else if (user.hpatual >= p9) {
+                            } else if (user.hpatual >= p9) {
                                 vidaPlayer2 = hpPlayer90
                             } else if (user.hpatual >= p8 && user.hpatual < p9) {
                                 vidaPlayer2 = hpPlayer80
@@ -433,7 +421,7 @@ module.exports = {
                             } else if (user.hpatual <= 0) {
                                 vidaPlayer2 = hpPlayer0
                             }
-                            
+
 
 
 
@@ -461,15 +449,15 @@ module.exports = {
                                 )
                                 .setFooter({ text: `Turno: ${interaction.user.username}` })
 
-                                if (monstroHpAtual <= 0) {
+                            if (monstroHpAtual <= 0) {
 
-                                    let termino = new Discord.EmbedBuilder()
-                                        .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
-                                        .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
+                                let termino = new Discord.EmbedBuilder()
+                                    .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
+                                    .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
 
-                                    return interaction.editReply({ embeds: [atk1], content: `${interaction.user}`, components: [] }),
+                                return interaction.editReply({ embeds: [atk1], content: `${interaction.user}`, components: [] }),
                                     setTimeout(() => { interaction.editReply({ embeds: [termino], content: `${interaction.user}`, components: [] }) }, 2000)
-                                }
+                            }
 
                             // INIMIGO ATACANDO
 
@@ -508,7 +496,7 @@ module.exports = {
 
                             if (user.manaatual === user.manamax) {
                                 manaPlayer3 = manaPlayer100
-                            }else if (user.manaatual >= m9) {
+                            } else if (user.manaatual >= m9) {
                                 manaPlayer3 = manaPlayer90
                             } else if (user.manaatual >= m8 && user.manaatual < m9) {
                                 manaPlayer3 = manaPlayer80
@@ -564,7 +552,7 @@ module.exports = {
                             } else if (user.hpatual <= 0) {
                                 vidaPlayer3 = hpPlayer0
                             }
-                           
+
 
 
 
@@ -598,7 +586,7 @@ module.exports = {
 
                             if (user.hpatual <= 0) {
                                 return await interaction.editReply({ embeds: [def], content: `${interaction.user}`, components: [] }),
-                                setTimeout(() => { interaction.editReply({ embeds: [derrota], content: `${interaction.user}`, components: [] }) }, 2000),
+                                    setTimeout(() => { interaction.editReply({ embeds: [derrota], content: `${interaction.user}`, components: [] }) }, 2000),
                                     await UsersRPG.findOneAndUpdate({
                                         id: interaction.user.id
                                     }, { $set: { "vivo": false } })
@@ -641,12 +629,12 @@ module.exports = {
                                 )
                                 .setFooter({ text: `Turno: ${interaction.user.username}` })
 
-                            
+
 
                             setTimeout(() => { interaction.editReply({ embeds: [atk2], content: `${interaction.user}`, components: [lutando] }) }, 4000)
 
 
-                            
+
                         }
 
                     })
