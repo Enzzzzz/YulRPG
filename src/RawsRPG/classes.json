@@ -2,6 +2,7 @@
     {
         "name": "Viking",
         "id": "viking",
+        "emoji": "🪓",
         "description": "Viking é uma das classes primárias deste RPG, ele pode ter uma alta taxa de dano quanto de defesa, suas habilidades podem aumentar ainda mais seus status.",
         "skills": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin"],
         "ultimate": "Berserker",
@@ -23,6 +24,7 @@
     {
         "name": "Arqueiro",
         "id": "arqueiro",
+        "emoji": "🏹",
         "description": "Arqueiro é uma das classes primárias deste RPG. Por causa de sua velocidade, ele pode atacar duas vezes antes de seu oponente atacar.",
         "skills": ["Rajada de Flechas", "Chuva de Flechas", "Flecha cegueira"],
         "ultimate": "Flecha de Luz",
@@ -44,6 +46,7 @@
     {
         "name": "Samurai",
         "id": "samurai",
+        "emoji": "🗡",
         "description": "A jornada de um samurai é longa e difícil. Ele é muito rapido com seus pés e se esconde nas sombras, um pequeno erro em sua frente pode custar a vida. Samurai é uma das classes do RPG, ela tem uma alta taxa de dano por causa das suas habilidades e o maior dano base de todas as classes.",
         "skills": ["Corte Sombrio", "Avançada", "Corte Triplo"],
         "ultimate": "Espada do Imperador",
@@ -65,6 +68,7 @@
     {
         "name": "Paladino",
         "id": "paladino",
+        "emoji": "🛡",
         "description": "Um guerreiro divino e justo enviado para combater todas as forças ruins do mundo. O Paladino é uma classe que possui muitos buffs, a maioria de suas skills fortalecem a si mesmo.",
         "skills": ["Martelo Sagrado", "Luz Divina", "Guerreiro da Luz"],
         "ultimate": "Tempestade Divina",
@@ -86,6 +90,7 @@
     {
         "name": "Demon Slayer",
         "id": "demonslayer",
+        "emoji": "⚔",
         "description": "Um humano que foi possuido por um demônio. Devido a grande força de sua alma, conseguiu subjulgar o demônio e controlar sua força e agora usa isso a seu favor para limpar todos os monstros do mundo. O Demon Slayer é uma classe baseada em dano, todas as suas habilidades causam uma grande quantidade de dano a seu oponente.",
         "skills": ["Execução", "Avanço das Trevas", "Sanguessuga da Alma"],
         "ultimate": "Forma Demoníaca",

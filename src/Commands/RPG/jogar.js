@@ -163,8 +163,8 @@ module.exports = {
                 );
             await interaction.reply({ embeds: [monstro], content: `${interaction.user}`, components: [Lutar], fetchReply: true })
                 .then(async (message) => {
-                    const filtro = (i) => i.user.id === interaction.user.id;
-                    const coletor = await message.createMessageComponentCollector({ filtro, time: 600000 });
+                    const filter = (i) => i.user.id === interaction.user.id;
+                    const coletor = await message.createMessageComponentCollector({ filter, time: 600000 });
 
                     coletor.on('collect', async (collected) => {
                         let valor = collected.customId
@@ -300,6 +300,15 @@ module.exports = {
                             }
                             if (monstroArmor >= 30 && monstroArmor < 39) {
                                 monstroArmor = 0.30
+                            }
+                            if (monstroArmor >= 40 && monstroArmor < 49) {
+                                monstroArmor = 0.40
+                            }
+                            if (monstroArmor >= 50 && monstroArmor < 59) {
+                                monstroArmor = 0.50
+                            }
+                            if (monstroArmor >= 60 && monstroArmor < 69) {
+                                monstroArmor = 0.60
                             }
                             if (monstroArmor <= 9) {
                                 monstroArmor = 0.09
