@@ -1,0 +1,302 @@
+[
+    {
+        "id": "viking",
+        "desc": "Você está vendo as habilidades de",
+        "skills": {
+            "skill1": {
+                "nome": "Machado de Choque",
+                "id": "machadodechoque",
+                "description": "Dá um golpe vertical com o machado, carregado com raios e trovoes causando dano [12 + PlayerDano] ao inimigo",
+                "level": 1,
+                "dano": 12,
+                "danoPL": 12,
+                "cooldown": 3,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skill2": {
+                "nome": "Investida do Escudo",
+                "id": "investidadoescudo",
+                "description": "Dá um dash para frente com o escudo causando dano [6 + PlayerArmor] ao inimigo e o deixa stunado por 3 rodadas",
+                "level": 1,
+                "dano": 6,
+                "danoPL": 8,
+                "cooldown": 7,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "stun",
+                    "duration": 3
+                }
+            },
+            "skill3": {
+                "nome": "Fúria de Odin",
+                "id": "machadodechoque",
+                "description": "O Viking recebe a fúria de Odin e tem seu dano [20%] aumentado por [5] rodadas, ",
+                "level": 1,
+                "dano": 0,
+                "danoPL": 0,
+                "cooldown": 10,
+                "icon": "",
+                "buff": {
+                    "type": "dmg",
+                    "duration": 5,
+                    "multiplicador": 0.20
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
+        },
+        "ultimate": "Berserker",
+        "ultimatedesc": "Ao usar sua ultimate, o Viking entra no modo Berserker e recupera parte da sua vida, o dano causado e a sua armadura aumentam drasticamente. Ele também pode recuperar vida [5%]"
+    },
+    {
+        "id": "arqueiro",
+        "desc": "",
+        "skills": {
+            "skill1": {
+                "nome": "Machado de Choque",
+                "id": "machadodechoque",
+                "description": "Dá um golpe vertical com o machado, carregado com raios e trovoes causando dano [12 + PlayerDano] ao inimigo",
+                "level": 1,
+                "dano": 12,
+                "danoPL": 12,
+                "cooldown": 3,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skill2": {
+                "nome": "Investida do Escudo",
+                "id": "investidadoescudo",
+                "description": "Dá um dash para frente com o escudo causando dano [6 + PlayerArmor] ao inimigo e o deixa stunado por 3 rodadas",
+                "level": 1,
+                "dano": 6,
+                "danoPL": 8,
+                "cooldown": 7,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "stun",
+                    "duration": 3
+                }
+            },
+            "skill3": {
+                "nome": "Fúria de Odin",
+                "id": "machadodechoque",
+                "description": "O Viking recebe a fúria de Odin e tem seu dano [20%] aumentado por [5] rodadas, ",
+                "level": 1,
+                "dano": 0,
+                "danoPL": 0,
+                "cooldown": 10,
+                "icon": "",
+                "buff": {
+                    "type": "dmg",
+                    "duration": 5,
+                    "multiplicador": 0.20
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
+        },
+        "ultimate": "Berserker",
+        "ultimatedesc": "Ao usar sua ultimate, o Viking entra no modo Berserker e recupera parte da sua vida, o dano causado e a sua armadura aumentam drasticamente. Ele também pode recuperar vida [5%]"
+    },
+    {
+        "id": "samurai",
+        "desc": "",
+        "skills": {
+            "skill1": {
+                "nome": "Machado de Choque",
+                "id": "machadodechoque",
+                "description": "Dá um golpe vertical com o machado, carregado com raios e trovoes causando dano [12 + PlayerDano] ao inimigo",
+                "level": 1,
+                "dano": 12,
+                "danoPL": 12,
+                "cooldown": 3,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skill2": {
+                "nome": "Investida do Escudo",
+                "id": "investidadoescudo",
+                "description": "Dá um dash para frente com o escudo causando dano [6 + PlayerArmor] ao inimigo e o deixa stunado por 3 rodadas",
+                "level": 1,
+                "dano": 6,
+                "danoPL": 8,
+                "cooldown": 7,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "stun",
+                    "duration": 3
+                }
+            },
+            "skill3": {
+                "nome": "Fúria de Odin",
+                "id": "machadodechoque",
+                "description": "O Viking recebe a fúria de Odin e tem seu dano [20%] aumentado por [5] rodadas, ",
+                "level": 1,
+                "dano": 0,
+                "danoPL": 0,
+                "cooldown": 10,
+                "icon": "",
+                "buff": {
+                    "type": "dmg",
+                    "duration": 5,
+                    "multiplicador": 0.20
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
+        },
+        "ultimate": "Berserker",
+        "ultimatedesc": "Ao usar sua ultimate, o Viking entra no modo Berserker e recupera parte da sua vida, o dano causado e a sua armadura aumentam drasticamente. Ele também pode recuperar vida [5%]"
+    },
+    {
+        "id": "paladino",
+        "desc": "",
+        "skills": {
+            "skill1": {
+                "nome": "Machado de Choque",
+                "id": "machadodechoque",
+                "description": "Dá um golpe vertical com o machado, carregado com raios e trovoes causando dano [12 + PlayerDano] ao inimigo",
+                "level": 1,
+                "dano": 12,
+                "danoPL": 12,
+                "cooldown": 3,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skill2": {
+                "nome": "Investida do Escudo",
+                "id": "investidadoescudo",
+                "description": "Dá um dash para frente com o escudo causando dano [6 + PlayerArmor] ao inimigo e o deixa stunado por 3 rodadas",
+                "level": 1,
+                "dano": 6,
+                "danoPL": 8,
+                "cooldown": 7,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "stun",
+                    "duration": 3
+                }
+            },
+            "skill3": {
+                "nome": "Fúria de Odin",
+                "id": "machadodechoque",
+                "description": "O Viking recebe a fúria de Odin e tem seu dano [20%] aumentado por [5] rodadas, ",
+                "level": 1,
+                "dano": 0,
+                "danoPL": 0,
+                "cooldown": 10,
+                "icon": "",
+                "buff": {
+                    "type": "dmg",
+                    "duration": 5,
+                    "multiplicador": 0.20
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
+        },
+        "ultimate": "Berserker",
+        "ultimatedesc": "Ao usar sua ultimate, o Viking entra no modo Berserker e recupera parte da sua vida, o dano causado e a sua armadura aumentam drasticamente. Ele também pode recuperar vida [5%]"
+    },
+    {
+        "id": "demonslayer",
+        "desc": "",
+        "skills": {
+            "skill1": {
+                "nome": "Machado de Choque",
+                "id": "machadodechoque",
+                "description": "Dá um golpe vertical com o machado, carregado com raios e trovoes causando dano [12 + PlayerDano] ao inimigo",
+                "level": 1,
+                "dano": 12,
+                "danoPL": 12,
+                "cooldown": 3,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skill2": {
+                "nome": "Investida do Escudo",
+                "id": "investidadoescudo",
+                "description": "Dá um dash para frente com o escudo causando dano [6 + PlayerArmor] ao inimigo e o deixa stunado por 3 rodadas",
+                "level": 1,
+                "dano": 6,
+                "danoPL": 8,
+                "cooldown": 7,
+                "icon": "",
+                "buff": {
+                    "type": "none"
+                },
+                "debuff": {
+                    "type": "stun",
+                    "duration": 3
+                }
+            },
+            "skill3": {
+                "nome": "Fúria de Odin",
+                "id": "machadodechoque",
+                "description": "O Viking recebe a fúria de Odin e tem seu dano [20%] aumentado por [5] rodadas, ",
+                "level": 1,
+                "dano": 0,
+                "danoPL": 0,
+                "cooldown": 10,
+                "icon": "",
+                "buff": {
+                    "type": "dmg",
+                    "duration": 5,
+                    "multiplicador": 0.20
+                },
+                "debuff": {
+                    "type": "none"
+                }
+            },
+            "skillList": ["Machado de Choque", "Investida do Escudo", "Fúria de Odin", "aaa", "oiiiii"]
+        },
+        "ultimate": "Berserker",
+        "ultimatedesc": "Ao usar sua ultimate, o Viking entra no modo Berserker e recupera parte da sua vida, o dano causado e a sua armadura aumentam drasticamente. Ele também pode recuperar vida [5%]"
+    }
+]
