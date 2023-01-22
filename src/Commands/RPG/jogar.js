@@ -5,6 +5,7 @@ const UsersGlobal = require('../../Schemas/UserGlobal')
 const UsersRPG = require("../../Schemas/UserRPG");
 const rawMonstros = require("../../RawsRPG/monstros.json")
 const RpgStats = require("../../Schemas/RPGstats")
+const rawHabilidades = require('../../RawsRPG/habilidades.json')
 
 
 module.exports = {
@@ -33,34 +34,6 @@ module.exports = {
             return interaction.reply({ embeds: [Morto] })
         }
 
-
-
-
-        const lutando = new Discord.ActionRowBuilder()
-            .addComponents(
-                new Discord.ButtonBuilder()
-                    .setCustomId('ataque')
-                    .setLabel(`Ataque`)
-                    .setStyle(2),
-                new Discord.ButtonBuilder()
-                    .setCustomId('skill1')
-                    .setLabel(`${user.skill1}`)
-                    .setStyle(1),
-                new Discord.ButtonBuilder()
-                    .setCustomId('skill2')
-                    .setLabel(`${user.skill2}`)
-                    .setStyle(1),
-                new Discord.ButtonBuilder()
-                    .setCustomId('skill3')
-                    .setLabel(`${user.skill3}`)
-                    .setStyle(1),
-                new Discord.ButtonBuilder()
-                    .setCustomId('ult')
-                    .setLabel(`(ULT) ${user.ult}`)
-                    .setStyle(1)
-                    .setDisabled(true),
-
-            );
 
 
         let monstroInfo = rawMonstros[Math.floor(Math.random() * rawMonstros.length)]
@@ -96,7 +69,6 @@ module.exports = {
         let playerManaMax = user.manamax
         let playerArmor = user.armor
 
-
         let hpPlayer100 = ':red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square:'
         let hpPlayer90 = ':red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::white_large_square:'
         let hpPlayer80 = ':red_square::red_square::red_square::red_square::red_square::red_square::red_square::red_square::white_large_square::white_large_square:'
@@ -121,15 +93,12 @@ module.exports = {
         let manaPlayer10 = ':blue_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:'
         let manaPlayer0 = ':white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square::white_large_square:'
 
-
-
         let xp = Math.floor(Math.random() * 20) + 1
         let moeda = Math.floor(Math.random() * 20) + 1
 
         let derrota = new Discord.EmbedBuilder()
             .setTitle(`:skull: Você Morreu!`)
             .setDescription(`Sua vida chegou a 0 e você morreu`)
-
 
         let monstro = new Discord.EmbedBuilder()
             .setTitle(`Você encontrou um ${monstroEncontrado} nivel ${monstroLevel}!`)
@@ -167,7 +136,7 @@ module.exports = {
                     const coletor = await message.createMessageComponentCollector({ filter, time: 600000 });
 
                     coletor.on('collect', async (collected) => {
-                        let valor = collected.customId
+                        const valor = collected.customId
                         collected.deferUpdate()
 
                         if (valor === 'lutar') {
@@ -243,6 +212,33 @@ module.exports = {
                             } else if (user.manaatual <= 0) {
                                 manaPlayer = manaPlayer0
                             }
+
+                            const skills = rawHabilidades.find((skill) => user.skill1 === skill.skills.skill1.nome);
+
+                            const lutando = new Discord.ActionRowBuilder()
+                                .addComponents(
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId('ataque')
+                                        .setLabel(`Ataque`)
+                                        .setStyle(2),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId(`skill:${skills.skills.skill1.id}`)
+                                        .setLabel(`${user.skill1}`)
+                                        .setStyle(1),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId(`skill:${skills.skills.skill2.id}`)
+                                        .setLabel(`${user.skill2}`)
+                                        .setStyle(1),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId(`skill:${skills.skills.skill3.id}`)
+                                        .setLabel(`${user.skill3}`)
+                                        .setStyle(1),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId('ult')
+                                        .setLabel(`(ULT) ${user.ult} ${user.ultStats}%`)
+                                        .setStyle(1)
+                                        .setDisabled(true),
+                                );
 
                             let aceito = new Discord.EmbedBuilder()
                                 .setTitle(`Você aceitou a luta!`)
@@ -641,6 +637,160 @@ module.exports = {
 
 
                             setTimeout(() => { interaction.editReply({ embeds: [atk2], content: `${interaction.user}`, components: [lutando] }) }, 4000)
+
+
+
+                        }
+
+
+                        else if (collected.isButton() && collected.customId.startsWith('skill')) {
+                            const valor = collected.customId.split(':');
+                            const skills = rawHabilidades.find((rpgSkill) => valor[1] === rpgSkill.skills.skill1.id || habilidade[1] === rpgSkill.skills.skill2.id || habilidade[1] === rpgSkill.skills.skill3.id);
+
+                            if (monstroArmor >= 10 && monstroArmor < 19) {
+                                monstroArmor = 0.10
+                            }
+                            if (monstroArmor >= 20 && monstroArmor < 29) {
+                                monstroArmor = 0.20
+                            }
+                            if (monstroArmor >= 30 && monstroArmor < 39) {
+                                monstroArmor = 0.30
+                            }
+                            if (monstroArmor >= 40 && monstroArmor < 49) {
+                                monstroArmor = 0.40
+                            }
+                            if (monstroArmor >= 50 && monstroArmor < 59) {
+                                monstroArmor = 0.50
+                            }
+                            if (monstroArmor >= 60 && monstroArmor < 69) {
+                                monstroArmor = 0.60
+                            }
+                            if (monstroArmor <= 9) {
+                                monstroArmor = 0.09
+                            }
+
+                            let dmgCalc = playerDano * monstroArmor
+                            let dmg = playerDano - dmgCalc
+                            dmg = Math.round(dmg)
+
+                            monstroHpAtual = monstroHpAtual - dmg
+                            let vidaMonstro = hpMonstro100
+
+                            p9 = monstroHpMax * 0.9
+                            p8 = monstroHpMax * 0.8
+                            p7 = monstroHpMax * 0.7
+                            p6 = monstroHpMax * 0.6
+                            p5 = monstroHpMax * 0.5
+                            p4 = monstroHpMax * 0.4
+                            p3 = monstroHpMax * 0.3
+                            p2 = monstroHpMax * 0.2
+                            p1 = monstroHpMax * 0.1
+
+                            if (monstroHpAtual >= p9) {
+                                vidaMonstro = hpMonstro90
+                            } else if (monstroHpAtual >= p8 && monstroHpAtual < p9) {
+                                vidaMonstro = hpMonstro80
+                            } else if (monstroHpAtual >= p7 && monstroHpAtual < p8) {
+                                vidaMonstro = hpMonstro70
+                            } else if (monstroHpAtual >= p6 && monstroHpAtual < p7) {
+                                vidaMonstro = hpMonstro60
+                            } else if (monstroHpAtual >= p5 && monstroHpAtual < p6) {
+                                vidaMonstro = hpMonstro50
+                            } else if (monstroHpAtual >= p4 && monstroHpAtual < p5) {
+                                vidaMonstro = hpMonstro40
+                            } else if (monstroHpAtual >= p3 && monstroHpAtual < p4) {
+                                vidaMonstro = hpMonstro30
+                            } else if (monstroHpAtual >= p2 && monstroHpAtual < p3) {
+                                vidaMonstro = hpMonstro20
+                            } else if (monstroHpAtual >= p1 && monstroHpAtual < p2) {
+                                vidaMonstro = hpMonstro10
+                            } else if (monstroHpAtual <= 0) {
+                                vidaMonstro = hpMonstro0
+                            }
+
+                            // await RpgStats.findOneAndUpdate({
+                            //     id: interaction.user.id
+                            // }, { $set: { "monstroHpBar": vidaMonstro, "montroHP": monstroHpAtual } } )
+
+                            // PLAYER ATACANDO
+
+                            let manaPlayer2 = manaPlayer100
+
+                            m9 = user.manamax * 0.9
+                            m8 = user.manamax * 0.8
+                            m7 = user.manamax * 0.7
+                            m6 = user.manamax * 0.6
+                            m5 = user.manamax * 0.5
+                            m4 = user.manamax * 0.4
+                            m3 = user.manamax * 0.3
+                            p2 = user.manamax * 0.2
+                            m1 = user.manamax * 0.1
+
+                            if (user.manaatual === user.manamax) {
+                                manaPlayer2 = manaPlayer100
+                            } else if (user.manaatual >= m9) {
+                                manaPlayer2 = manaPlayer90
+                            } else if (user.manaatual >= m8 && user.manaatual < m9) {
+                                manaPlayer2 = manaPlayer80
+                            } else if (user.manaatual >= m7 && user.manaatual < m8) {
+                                manaPlayer2 = manaPlayer70
+                            } else if (user.manaatual >= m6 && user.manaatual < m7) {
+                                manaPlayer2 = manaPlayer60
+                            } else if (user.manaatual >= m5 && user.manaatual < m6) {
+                                manaPlayer2 = manaPlayer50
+                            } else if (user.manaatual >= m4 && user.manaatual < m5) {
+                                manaPlayer2 = manaPlayer40
+                            } else if (user.manaatual >= m3 && user.manaatual < m4) {
+                                manaPlayer2 = manaPlayer30
+                            } else if (user.manaatual >= m2 && user.manaatual < m3) {
+                                manaPlayer2 = manaPlayer20
+                            } else if (user.manaatual >= m1 && user.manaatual < m2) {
+                                manaPlayer2 = manaPlayer10
+                            } else if (user.manaatual <= 0) {
+                                manaPlayer2 = manaPlayer0
+                            }
+
+                            let vidaPlayer2 = hpPlayer100
+
+                            p9 = user.hpmax * 0.9
+                            p8 = user.hpmax * 0.8
+                            p7 = user.hpmax * 0.7
+                            p6 = user.hpmax * 0.6
+                            p5 = user.hpmax * 0.5
+                            p4 = user.hpmax * 0.4
+                            p3 = user.hpmax * 0.3
+                            p2 = user.hpmax * 0.2
+                            p1 = user.hpmax * 0.1
+
+                            if (user.hpatual === user.hpmax) {
+                                vidaPlayer = hpPlayer100
+                            } else if (user.hpatual >= p9) {
+                                vidaPlayer2 = hpPlayer90
+                            } else if (user.hpatual >= p8 && user.hpatual < p9) {
+                                vidaPlayer2 = hpPlayer80
+                            } else if (user.hpatual >= p7 && user.hpatual < p8) {
+                                vidaPlayer2 = hpPlayer70
+                            } else if (user.hpatual >= p6 && user.hpatual < p7) {
+                                vidaPlayer2 = hpPlayer60
+                            } else if (user.hpatual >= p5 && user.hpatual < p6) {
+                                vidaPlayer2 = hpPlayer50
+                            } else if (user.hpatual >= p4 && user.hpatual < p5) {
+                                vidaPlayer2 = hpPlayer40
+                            } else if (user.hpatual >= p3 && user.hpatual < p4) {
+                                vidaPlayer2 = hpPlayer30
+                            } else if (user.hpatual >= p2 && user.hpatual < p3) {
+                                vidaPlayer2 = hpPlayer20
+                            } else if (user.hpatual >= p1 && user.hpatual < p2) {
+                                vidaPlayer2 = hpPlayer10
+                            } else if (user.hpatual <= 0) {
+                                vidaPlayer2 = hpPlayer0
+                            }
+                            console.log(skills)
+
+                            if (skills.skills.skill1) {
+
+                            }
+                        
 
 
 

@@ -158,17 +158,17 @@ module.exports = {
                   },
                   {
                     name: `${skills.skills.skill1.nome}`,
-                    value: `${skills.skills.skill1.description}\n**Dano:** \`${skills.skills.skill1.dano}\`n**Cooldown:** \`${skills.skills.skill1.cooldown}\` Rodadas\n**Buffs:** ${skills.skills.skill1.buff.type}\n**Duração:** \`${skills.skills.skill1.buff.duration}\` Rodadas\n\n`,
+                    value: `${skills.skills.skill1.description}\n**Dano:** \`${skills.skills.skill1.dano}\`\n**Cooldown:** \`${skills.skills.skill1.cooldown}\` Rodadas\n**Buffs:** ${skills.skills.skill1.buff.type} **Duração:** \`${skills.skills.skill1.buff.duration}\` Rodadas\n**Debuffs:** ${skills.skills.skill1.debuff.type} **Duração:** ${skills.skills.skill1.debuff.duration}\n\n`,
                     inline: false,
                   },
                   {
                     name: `${skills.skills.skill2.nome}`,
-                    value: `${skills.skills.skill2.description}\n**Dano:** \`${skills.skills.skill2.dano}\`n**Cooldown:** \`${skills.skills.skill2.cooldown}\` Rodadas\n**Buffs:** ${skills.skills.skill2.buff.type}\n**Duração:** \`${skills.skills.skill2.buff.duration}\` Rodadas\n\n`,
+                    value: `${skills.skills.skill2.description}\n**Dano:** \`${skills.skills.skill2.dano}\`\n**Cooldown:** \`${skills.skills.skill2.cooldown}\` Rodadas\n**Buffs:** ${skills.skills.skill2.buff.type} **Duração:** \`${skills.skills.skill2.buff.duration}\` Rodadas\n**Debuffs:** ${skills.skills.skill2.debuff.type} **Duração:** ${skills.skills.skill2.debuff.duration}\n\n`,
                     inline: false,
                   },
                   {
                     name: `${skills.skills.skill3.nome}`,
-                    value: `${skills.skills.skill3.description}\n**Dano:** \`${skills.skills.skill3.dano}\`n**Cooldown:** \`${skills.skills.skill3.cooldown}\` Rodadas\n**Buffs:** ${skills.skills.skill3.buff.type}\n**Duração:** \`${skills.skills.skill3.buff.duration}\` Rodadas\n\n`,
+                    value: `${skills.skills.skill3.description}\n**Dano:** \`${skills.skills.skill3.dano}\`\n**Cooldown:** \`${skills.skills.skill3.cooldown}\` Rodadas\n**Buffs:** ${skills.skills.skill3.buff.type} **Duração:** \`${skills.skills.skill3.buff.duration}\` Rodadas\n**Debuffs:** ${skills.skills.skill3.debuff.type} **Duração:** ${skills.skills.skill3.debuff.duration}\n\n`,
                     inline: false,
                   },
                   {
