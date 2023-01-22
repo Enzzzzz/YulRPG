@@ -285,7 +285,32 @@ module.exports = {
                         }
 
                         else if (valor === 'ataque') {
+                            const skills = rawHabilidades.find((skill) => user.skill1 === skill.skills.skill1.nome);
 
+                            const lutando = new Discord.ActionRowBuilder()
+                                .addComponents(
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId('ataque')
+                                        .setLabel(`Ataque`)
+                                        .setStyle(2),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId(`skill:${skills.skills.skill1.id}`)
+                                        .setLabel(`${user.skill1}`)
+                                        .setStyle(1),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId(`skill:${skills.skills.skill2.id}`)
+                                        .setLabel(`${user.skill2}`)
+                                        .setStyle(1),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId(`skill:${skills.skills.skill3.id}`)
+                                        .setLabel(`${user.skill3}`)
+                                        .setStyle(1),
+                                    new Discord.ButtonBuilder()
+                                        .setCustomId('ult')
+                                        .setLabel(`(ULT) ${user.ult} ${user.ultStats}%`)
+                                        .setStyle(1)
+                                        .setDisabled(true),
+                                );
 
 
                             if (monstroArmor >= 10 && monstroArmor < 19) {
@@ -558,9 +583,6 @@ module.exports = {
                                 vidaPlayer3 = hpPlayer0
                             }
 
-
-
-
                             let def = new Discord.EmbedBuilder()
                                 .setTitle(`${monstroEncontrado} te atacou e causou ${dmgPlayer} de dano!`)
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
@@ -642,155 +664,389 @@ module.exports = {
 
                         }
 
-
-                        else if (collected.isButton() && collected.customId.startsWith('skill')) {
+                        if (collected.isButton() && collected.customId.startsWith('skill')) {
                             const valor = collected.customId.split(':');
-                            const skills = rawHabilidades.find((rpgSkill) => valor[1] === rpgSkill.skills.skill1.id || habilidade[1] === rpgSkill.skills.skill2.id || habilidade[1] === rpgSkill.skills.skill3.id);
+                            const skills = rawHabilidades.find((rpgSkill) => valor[1] === rpgSkill.skills.skill1.id || valor[1] === rpgSkill.skills.skill2.id || valor[1] === rpgSkill.skills.skill3.id);
+                            let player = await UsersRPG.findOne({
+                                id: interaction.user.id
+                            });
 
-                            if (monstroArmor >= 10 && monstroArmor < 19) {
-                                monstroArmor = 0.10
+                            //SKILL 1 USADA
+
+                            if (valor[1] === skills.skills.skill1.id) {
+
+                                const skills = rawHabilidades.find((skill) => user.skill1 === skill.skills.skill1.nome);
+
+                                const lutando = new Discord.ActionRowBuilder()
+                                    .addComponents(
+                                        new Discord.ButtonBuilder()
+                                            .setCustomId('ataque')
+                                            .setLabel(`Ataque`)
+                                            .setStyle(2),
+                                        new Discord.ButtonBuilder()
+                                            .setCustomId(`skill:${skills.skills.skill1.id}`)
+                                            .setLabel(`${user.skill1}`)
+                                            .setStyle(1),
+                                        new Discord.ButtonBuilder()
+                                            .setCustomId(`skill:${skills.skills.skill2.id}`)
+                                            .setLabel(`${user.skill2}`)
+                                            .setStyle(1),
+                                        new Discord.ButtonBuilder()
+                                            .setCustomId(`skill:${skills.skills.skill3.id}`)
+                                            .setLabel(`${user.skill3}`)
+                                            .setStyle(1),
+                                        new Discord.ButtonBuilder()
+                                            .setCustomId('ult')
+                                            .setLabel(`(ULT) ${user.ult} ${user.ultStats}%`)
+                                            .setStyle(1)
+                                            .setDisabled(true),
+                                    );
+
+                                const usedSkill = rawHabilidades.find((usedSkill) => valor[1] === usedSkill.skills.skill1.id);
+
+                                if (monstroArmor >= 10 && monstroArmor < 19) {
+                                    monstroArmor = 0.10
+                                }
+                                if (monstroArmor >= 20 && monstroArmor < 29) {
+                                    monstroArmor = 0.20
+                                }
+                                if (monstroArmor >= 30 && monstroArmor < 39) {
+                                    monstroArmor = 0.30
+                                }
+                                if (monstroArmor >= 40 && monstroArmor < 49) {
+                                    monstroArmor = 0.40
+                                }
+                                if (monstroArmor >= 50 && monstroArmor < 59) {
+                                    monstroArmor = 0.50
+                                }
+                                if (monstroArmor >= 60 && monstroArmor < 69) {
+                                    monstroArmor = 0.60
+                                }
+                                if (monstroArmor <= 9) {
+                                    monstroArmor = 0.09
+                                }
+
+                                let skillDmg = usedSkill.skills.skill1.dano + playerDano
+                                let dmgCalc = playerDano * monstroArmor
+                                let dmg = skillDmg - dmgCalc
+                                dmg = Math.round(dmg)
+
+                                monstroHpAtual = monstroHpAtual - dmg
+                                let vidaMonstro = hpMonstro100
+
+                                p9 = monstroHpMax * 0.9
+                                p8 = monstroHpMax * 0.8
+                                p7 = monstroHpMax * 0.7
+                                p6 = monstroHpMax * 0.6
+                                p5 = monstroHpMax * 0.5
+                                p4 = monstroHpMax * 0.4
+                                p3 = monstroHpMax * 0.3
+                                p2 = monstroHpMax * 0.2
+                                p1 = monstroHpMax * 0.1
+
+                                if (monstroHpAtual >= p9) {
+                                    vidaMonstro = hpMonstro90
+                                } else if (monstroHpAtual >= p8 && monstroHpAtual < p9) {
+                                    vidaMonstro = hpMonstro80
+                                } else if (monstroHpAtual >= p7 && monstroHpAtual < p8) {
+                                    vidaMonstro = hpMonstro70
+                                } else if (monstroHpAtual >= p6 && monstroHpAtual < p7) {
+                                    vidaMonstro = hpMonstro60
+                                } else if (monstroHpAtual >= p5 && monstroHpAtual < p6) {
+                                    vidaMonstro = hpMonstro50
+                                } else if (monstroHpAtual >= p4 && monstroHpAtual < p5) {
+                                    vidaMonstro = hpMonstro40
+                                } else if (monstroHpAtual >= p3 && monstroHpAtual < p4) {
+                                    vidaMonstro = hpMonstro30
+                                } else if (monstroHpAtual >= p2 && monstroHpAtual < p3) {
+                                    vidaMonstro = hpMonstro20
+                                } else if (monstroHpAtual >= p1 && monstroHpAtual < p2) {
+                                    vidaMonstro = hpMonstro10
+                                } else if (monstroHpAtual <= 0) {
+                                    vidaMonstro = hpMonstro0
+                                }
+
+                                // await RpgStats.findOneAndUpdate({
+                                //     id: interaction.user.id
+                                // }, { $set: { "monstroHpBar": vidaMonstro, "montroHP": monstroHpAtual } } )
+
+                                // PLAYER ATACANDO
+
+                                let manaPlayer2 = manaPlayer100
+
+                                m9 = user.manamax * 0.9
+                                m8 = user.manamax * 0.8
+                                m7 = user.manamax * 0.7
+                                m6 = user.manamax * 0.6
+                                m5 = user.manamax * 0.5
+                                m4 = user.manamax * 0.4
+                                m3 = user.manamax * 0.3
+                                m2 = user.manamax * 0.2
+                                m1 = user.manamax * 0.1
+
+                                if (user.manaatual === user.manamax) {
+                                    manaPlayer2 = manaPlayer100
+                                } else if (user.manaatual >= m9) {
+                                    manaPlayer2 = manaPlayer90
+                                } else if (user.manaatual >= m8 && user.manaatual < m9) {
+                                    manaPlayer2 = manaPlayer80
+                                } else if (user.manaatual >= m7 && user.manaatual < m8) {
+                                    manaPlayer2 = manaPlayer70
+                                } else if (user.manaatual >= m6 && user.manaatual < m7) {
+                                    manaPlayer2 = manaPlayer60
+                                } else if (user.manaatual >= m5 && user.manaatual < m6) {
+                                    manaPlayer2 = manaPlayer50
+                                } else if (user.manaatual >= m4 && user.manaatual < m5) {
+                                    manaPlayer2 = manaPlayer40
+                                } else if (user.manaatual >= m3 && user.manaatual < m4) {
+                                    manaPlayer2 = manaPlayer30
+                                } else if (user.manaatual >= m2 && user.manaatual < m3) {
+                                    manaPlayer2 = manaPlayer20
+                                } else if (user.manaatual >= m1 && user.manaatual < m2) {
+                                    manaPlayer2 = manaPlayer10
+                                } else if (user.manaatual <= 0) {
+                                    manaPlayer2 = manaPlayer0
+                                }
+
+
+                                // INIMIGO ATACANDO
+
+
+                                if (playerArmor >= 10 && playerArmor < 19) {
+                                    playerArmor = 0.10
+                                }
+                                if (playerArmor >= 20 && playerArmor < 29) {
+                                    playerArmor = 0.20
+                                }
+                                if (playerArmor >= 30 && playerArmor < 39) {
+                                    playerArmor = 0.30
+                                }
+                                if (playerArmor <= 9) {
+                                    playerArmor = 0.09
+                                }
+
+                                let dmgCalcPlayer = monstroDano * playerArmor
+                                let dmgPlayer = monstroDano - dmgCalcPlayer
+                                dmgPlayer = Math.round(dmgPlayer)
+
+                                user.hpatual = user.hpatual - dmgPlayer
+
+
+                                let manaPlayer3 = manaPlayer100
+
+                                m9 = user.manamax * 0.9
+                                m8 = user.manamax * 0.8
+                                m7 = user.manamax * 0.7
+                                m6 = user.manamax * 0.6
+                                m5 = user.manamax * 0.5
+                                m4 = user.manamax * 0.4
+                                m3 = user.manamax * 0.3
+                                m2 = user.manamax * 0.2
+                                m1 = user.manamax * 0.1
+
+                                if (user.manaatual === user.manamax) {
+                                    manaPlayer3 = manaPlayer100
+                                } else if (user.manaatual >= m9) {
+                                    manaPlayer3 = manaPlayer90
+                                } else if (user.manaatual >= m8 && user.manaatual < m9) {
+                                    manaPlayer3 = manaPlayer80
+                                } else if (user.manaatual >= m7 && user.manaatual < m8) {
+                                    manaPlayer3 = manaPlayer70
+                                } else if (user.manaatual >= m6 && user.manaatual < m7) {
+                                    manaPlayer3 = manaPlayer60
+                                } else if (user.manaatual >= m5 && user.manaatual < m6) {
+                                    manaPlayer3 = manaPlayer50
+                                } else if (user.manaatual >= m4 && user.manaatual < m5) {
+                                    manaPlayer3 = manaPlayer40
+                                } else if (user.manaatual >= m3 && user.manaatual < m4) {
+                                    manaPlayer3 = manaPlayer30
+                                } else if (user.manaatual >= m2 && user.manaatual < m3) {
+                                    manaPlayer3 = manaPlayer20
+                                } else if (user.manaatual >= m1 && user.manaatual < m2) {
+                                    manaPlayer3 = manaPlayer10
+                                } else if (user.manaatual <= 0) {
+                                    manaPlayer3 = manaPlayer0
+                                }
+
+                                let vidaPlayer2 = hpPlayer100
+
+                                p9 = user.hpmax * 0.9
+                                p8 = user.hpmax * 0.8
+                                p7 = user.hpmax * 0.7
+                                p6 = user.hpmax * 0.6
+                                p5 = user.hpmax * 0.5
+                                p4 = user.hpmax * 0.4
+                                p3 = user.hpmax * 0.3
+                                p2 = user.hpmax * 0.2
+                                p1 = user.hpmax * 0.1
+
+                                if (user.hpatual === user.hpmax) {
+                                    vidaPlayer = hpPlayer100
+                                } else if (user.hpatual >= p9) {
+                                    vidaPlayer2 = hpPlayer90
+                                } else if (user.hpatual >= p8 && user.hpatual < p9) {
+                                    vidaPlayer2 = hpPlayer80
+                                } else if (user.hpatual >= p7 && user.hpatual < p8) {
+                                    vidaPlayer2 = hpPlayer70
+                                } else if (user.hpatual >= p6 && user.hpatual < p7) {
+                                    vidaPlayer2 = hpPlayer60
+                                } else if (user.hpatual >= p5 && user.hpatual < p6) {
+                                    vidaPlayer2 = hpPlayer50
+                                } else if (user.hpatual >= p4 && user.hpatual < p5) {
+                                    vidaPlayer2 = hpPlayer40
+                                } else if (user.hpatual >= p3 && user.hpatual < p4) {
+                                    vidaPlayer2 = hpPlayer30
+                                } else if (user.hpatual >= p2 && user.hpatual < p3) {
+                                    vidaPlayer2 = hpPlayer20
+                                } else if (user.hpatual >= p1 && user.hpatual < p2) {
+                                    vidaPlayer2 = hpPlayer10
+                                } else if (user.hpatual <= 0) {
+                                    vidaPlayer2 = hpPlayer0
+                                }
+
+                                let def = new Discord.EmbedBuilder()
+                                    .setTitle(`${monstroEncontrado} te atacou e causou ${dmgPlayer} de dano!`)
+                                    .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
+                                    .setThumbnail(monstroInfo.icon)
+                                    .addFields(
+                                        {
+                                            name: `${monstroEncontrado}`,
+                                            value: `<:lvl:1065418053170499698> **Nível:** \`${monstroLevel}\` `,
+                                            inline: false,
+                                        },
+                                        {
+                                            name: `Vida ${monstroEncontrado}`,
+                                            value: `**Vida:** \`${monstroHpAtual}/${monstroHpMax}\`\n${vidaMonstro}`,
+                                            inline: true
+                                        },
+                                        {
+
+                                            name: 'Seus Status',
+                                            value: `**Vida:** \`${user.hpatual}/${user.hpmax}\`\n${vidaPlayer2}\n**Mana:** \`${playerManaAtual}/${playerManaMax}\`\n${manaPlayer3}`,
+                                            inline: true
+                                        }
+                                    )
+                                    .setFooter({ text: `Turno: ${monstroEncontrado}` })
+
+                                let embedSkill1 = new Discord.EmbedBuilder()
+                                    .setTitle(`Você usou sua habilidade ${usedSkill.skills.skill1.nome} e causou ${dmg}!`)
+                                    .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
+                                    .setThumbnail(monstroInfo.icon)
+                                    .addFields(
+                                        {
+                                            name: `${monstroEncontrado}`,
+                                            value: `<:lvl:1065418053170499698> **Nível:** \`${monstroLevel}\` `,
+                                            inline: false,
+                                        },
+                                        {
+                                            name: `Vida ${monstroEncontrado}`,
+                                            value: `**Vida:** \`${monstroHpAtual}/${monstroHpMax}\`\n${vidaMonstro}`,
+                                            inline: true
+                                        },
+                                        {
+
+                                            name: 'Seus Status',
+                                            value: `**Vida:** \`${user.hpatual}/${user.hpmax}\`\n${vidaPlayer2}\n\`${playerManaAtual}/${playerManaMax}\``,
+                                            inline: true
+                                        }
+                                    )
+                                    .setFooter({ text: `Turno: ${interaction.user.username}` })
+
+                                if (monstroHpAtual <= 0) {
+
+                                    let termino = new Discord.EmbedBuilder()
+                                        .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
+                                        .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
+
+                                    return await interaction.editReply({ embeds: [embedSkill1], content: `${interaction.user}`, components: [] }),
+                                        setTimeout(() => { interaction.editReply({ embeds: [termino], content: `${interaction.user}`, components: [] }) }, 2000)
+                                }
+
+                                if (user.hpatual <= 0) {
+                                    return await interaction.editReply({ embeds: [def], content: `${interaction.user}`, components: [] }),
+                                        setTimeout(() => { interaction.editReply({ embeds: [derrota], content: `${interaction.user}`, components: [] }) }, 2000),
+                                        await UsersRPG.findOneAndUpdate({
+                                            id: interaction.user.id
+                                        }, { $set: { "vivo": false } })
+
+                                }
+
+                                await interaction.editReply({ embeds: [embedSkill1], content: `${interaction.user}`, components: [] })
+
+                                setTimeout(() => { interaction.editReply({ embeds: [def], content: `${interaction.user}`, components: [] }) }, 2000)
+
+                                await UsersRPG.findOneAndUpdate({
+                                    id: interaction.user.id
+                                }, { $set: { "hpatual": user.hpatual } })
+
+                                let player = await UsersRPG.findOne({
+                                    id: interaction.user.id
+                                });
+
+                                let vidaPlayer3 = hpPlayer100
+
+                                p9 = user.hpmax * 0.9
+                                p8 = user.hpmax * 0.8
+                                p7 = user.hpmax * 0.7
+                                p6 = user.hpmax * 0.6
+                                p5 = user.hpmax * 0.5
+                                p4 = user.hpmax * 0.4
+                                p3 = user.hpmax * 0.3
+                                p2 = user.hpmax * 0.2
+                                p1 = user.hpmax * 0.1
+
+                                if (user.hpatual >= p9) {
+                                    vidaPlayer3 = hpPlayer90
+                                } else if (user.hpatual >= p8 && user.hpatual < p9) {
+                                    vidaPlayer3 = hpPlayer80
+                                } else if (user.hpatual >= p7 && user.hpatual < p8) {
+                                    vidaPlayer3 = hpPlayer70
+                                } else if (user.hpatual >= p6 && user.hpatual < p7) {
+                                    vidaPlayer3 = hpPlayer60
+                                } else if (user.hpatual >= p5 && user.hpatual < p6) {
+                                    vidaPlayer3 = hpPlayer50
+                                } else if (user.hpatual >= p4 && user.hpatual < p5) {
+                                    vidaPlayer3 = hpPlayer40
+                                } else if (user.hpatual >= p3 && user.hpatual < p4) {
+                                    vidaPlayer3 = hpPlayer30
+                                } else if (user.hpatual >= p2 && user.hpatual < p3) {
+                                    vidaPlayer3 = hpPlayer20
+                                } else if (user.hpatual >= p1 && user.hpatual < p2) {
+                                    vidaPlayer3 = hpPlayer10
+                                } else if (user.hpatual <= 0) {
+                                    vidaPlayer3 = hpPlayer0
+                                }
+
+                                let atk2 = new Discord.EmbedBuilder()
+                                    .setTitle(`Sua vez, ataque novamente!`)
+                                    .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
+                                    .setThumbnail(monstroInfo.icon)
+                                    .addFields(
+                                        {
+                                            name: `${monstroEncontrado}`,
+                                            value: `<:lvl:1065418053170499698> **Nível:** \`${monstroLevel}\` `,
+                                            inline: false,
+                                        },
+                                        {
+                                            name: `Vida ${monstroEncontrado}`,
+                                            value: `**Vida:** \`${monstroHpAtual}/${monstroHpMax}\`\n${vidaMonstro}`,
+                                            inline: true
+                                        },
+                                        {
+
+                                            name: 'Seus Status',
+                                            value: `**Vida:** \`${player.hpatual}/${player.hpmax}\`\n${vidaPlayer3}\n\`${playerManaAtual}/${playerManaMax}\``,
+                                            inline: true
+                                        }
+                                    )
+                                    .setFooter({ text: `Turno: ${interaction.user.username}` })
+
+                                setTimeout(() => { interaction.editReply({ embeds: [atk2], content: `${interaction.user}`, components: [lutando] }) }, 4000)
+
+
+
                             }
-                            if (monstroArmor >= 20 && monstroArmor < 29) {
-                                monstroArmor = 0.20
-                            }
-                            if (monstroArmor >= 30 && monstroArmor < 39) {
-                                monstroArmor = 0.30
-                            }
-                            if (monstroArmor >= 40 && monstroArmor < 49) {
-                                monstroArmor = 0.40
-                            }
-                            if (monstroArmor >= 50 && monstroArmor < 59) {
-                                monstroArmor = 0.50
-                            }
-                            if (monstroArmor >= 60 && monstroArmor < 69) {
-                                monstroArmor = 0.60
-                            }
-                            if (monstroArmor <= 9) {
-                                monstroArmor = 0.09
-                            }
 
-                            let dmgCalc = playerDano * monstroArmor
-                            let dmg = playerDano - dmgCalc
-                            dmg = Math.round(dmg)
-
-                            monstroHpAtual = monstroHpAtual - dmg
-                            let vidaMonstro = hpMonstro100
-
-                            p9 = monstroHpMax * 0.9
-                            p8 = monstroHpMax * 0.8
-                            p7 = monstroHpMax * 0.7
-                            p6 = monstroHpMax * 0.6
-                            p5 = monstroHpMax * 0.5
-                            p4 = monstroHpMax * 0.4
-                            p3 = monstroHpMax * 0.3
-                            p2 = monstroHpMax * 0.2
-                            p1 = monstroHpMax * 0.1
-
-                            if (monstroHpAtual >= p9) {
-                                vidaMonstro = hpMonstro90
-                            } else if (monstroHpAtual >= p8 && monstroHpAtual < p9) {
-                                vidaMonstro = hpMonstro80
-                            } else if (monstroHpAtual >= p7 && monstroHpAtual < p8) {
-                                vidaMonstro = hpMonstro70
-                            } else if (monstroHpAtual >= p6 && monstroHpAtual < p7) {
-                                vidaMonstro = hpMonstro60
-                            } else if (monstroHpAtual >= p5 && monstroHpAtual < p6) {
-                                vidaMonstro = hpMonstro50
-                            } else if (monstroHpAtual >= p4 && monstroHpAtual < p5) {
-                                vidaMonstro = hpMonstro40
-                            } else if (monstroHpAtual >= p3 && monstroHpAtual < p4) {
-                                vidaMonstro = hpMonstro30
-                            } else if (monstroHpAtual >= p2 && monstroHpAtual < p3) {
-                                vidaMonstro = hpMonstro20
-                            } else if (monstroHpAtual >= p1 && monstroHpAtual < p2) {
-                                vidaMonstro = hpMonstro10
-                            } else if (monstroHpAtual <= 0) {
-                                vidaMonstro = hpMonstro0
-                            }
-
-                            // await RpgStats.findOneAndUpdate({
-                            //     id: interaction.user.id
-                            // }, { $set: { "monstroHpBar": vidaMonstro, "montroHP": monstroHpAtual } } )
-
-                            // PLAYER ATACANDO
-
-                            let manaPlayer2 = manaPlayer100
-
-                            m9 = user.manamax * 0.9
-                            m8 = user.manamax * 0.8
-                            m7 = user.manamax * 0.7
-                            m6 = user.manamax * 0.6
-                            m5 = user.manamax * 0.5
-                            m4 = user.manamax * 0.4
-                            m3 = user.manamax * 0.3
-                            p2 = user.manamax * 0.2
-                            m1 = user.manamax * 0.1
-
-                            if (user.manaatual === user.manamax) {
-                                manaPlayer2 = manaPlayer100
-                            } else if (user.manaatual >= m9) {
-                                manaPlayer2 = manaPlayer90
-                            } else if (user.manaatual >= m8 && user.manaatual < m9) {
-                                manaPlayer2 = manaPlayer80
-                            } else if (user.manaatual >= m7 && user.manaatual < m8) {
-                                manaPlayer2 = manaPlayer70
-                            } else if (user.manaatual >= m6 && user.manaatual < m7) {
-                                manaPlayer2 = manaPlayer60
-                            } else if (user.manaatual >= m5 && user.manaatual < m6) {
-                                manaPlayer2 = manaPlayer50
-                            } else if (user.manaatual >= m4 && user.manaatual < m5) {
-                                manaPlayer2 = manaPlayer40
-                            } else if (user.manaatual >= m3 && user.manaatual < m4) {
-                                manaPlayer2 = manaPlayer30
-                            } else if (user.manaatual >= m2 && user.manaatual < m3) {
-                                manaPlayer2 = manaPlayer20
-                            } else if (user.manaatual >= m1 && user.manaatual < m2) {
-                                manaPlayer2 = manaPlayer10
-                            } else if (user.manaatual <= 0) {
-                                manaPlayer2 = manaPlayer0
-                            }
-
-                            let vidaPlayer2 = hpPlayer100
-
-                            p9 = user.hpmax * 0.9
-                            p8 = user.hpmax * 0.8
-                            p7 = user.hpmax * 0.7
-                            p6 = user.hpmax * 0.6
-                            p5 = user.hpmax * 0.5
-                            p4 = user.hpmax * 0.4
-                            p3 = user.hpmax * 0.3
-                            p2 = user.hpmax * 0.2
-                            p1 = user.hpmax * 0.1
-
-                            if (user.hpatual === user.hpmax) {
-                                vidaPlayer = hpPlayer100
-                            } else if (user.hpatual >= p9) {
-                                vidaPlayer2 = hpPlayer90
-                            } else if (user.hpatual >= p8 && user.hpatual < p9) {
-                                vidaPlayer2 = hpPlayer80
-                            } else if (user.hpatual >= p7 && user.hpatual < p8) {
-                                vidaPlayer2 = hpPlayer70
-                            } else if (user.hpatual >= p6 && user.hpatual < p7) {
-                                vidaPlayer2 = hpPlayer60
-                            } else if (user.hpatual >= p5 && user.hpatual < p6) {
-                                vidaPlayer2 = hpPlayer50
-                            } else if (user.hpatual >= p4 && user.hpatual < p5) {
-                                vidaPlayer2 = hpPlayer40
-                            } else if (user.hpatual >= p3 && user.hpatual < p4) {
-                                vidaPlayer2 = hpPlayer30
-                            } else if (user.hpatual >= p2 && user.hpatual < p3) {
-                                vidaPlayer2 = hpPlayer20
-                            } else if (user.hpatual >= p1 && user.hpatual < p2) {
-                                vidaPlayer2 = hpPlayer10
-                            } else if (user.hpatual <= 0) {
-                                vidaPlayer2 = hpPlayer0
-                            }
-                            console.log(skills)
-
-                            if (skills.skills.skill1) {
-
-                            }
-                        
 
 
 
