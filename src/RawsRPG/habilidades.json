@@ -13,6 +13,7 @@
                 "danoPL": 12,
                 "cooldown": 3,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -32,6 +33,7 @@
                 "danoPL": 8,
                 "cooldown": 7,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -51,6 +53,7 @@
                 "danoPL": 0,
                 "cooldown": 10,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "dmg",
                     "duration": 5,
@@ -80,6 +83,7 @@
                 "danoPL": 6,
                 "cooldown": 2,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -99,6 +103,7 @@
                 "danoPL": 8,
                 "cooldown": 5,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -118,6 +123,7 @@
                 "danoPL": 0,
                 "cooldown": 7,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -146,6 +152,7 @@
                 "danoPL": 20,
                 "cooldown": 5,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -165,6 +172,7 @@
                 "danoPL": 6,
                 "cooldown": 7,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -184,6 +192,7 @@
                 "danoPL": 10,
                 "cooldown": 10,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -212,6 +221,7 @@
                 "danoPL": 12,
                 "cooldown": 3,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -231,6 +241,7 @@
                 "danoPL": 8,
                 "cooldown": 7,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -250,6 +261,7 @@
                 "danoPL": 0,
                 "cooldown": 10,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "dmg",
                     "duration": 5,
@@ -279,6 +291,7 @@
                 "danoPL": 12,
                 "cooldown": 3,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -298,6 +311,7 @@
                 "danoPL": 8,
                 "cooldown": 7,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -317,6 +331,7 @@
                 "danoPL": 0,
                 "cooldown": 10,
                 "icon": "",
+                "cost": 0,
                 "buff": {
                     "type": "dmg",
                     "duration": 5,

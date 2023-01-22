@@ -34,8 +34,6 @@ module.exports = {
             return interaction.reply({ embeds: [Morto] })
         }
 
-
-
         let monstroInfo = rawMonstros[Math.floor(Math.random() * rawMonstros.length)]
 
         //MONSTRO STATS
@@ -667,14 +665,12 @@ module.exports = {
                         if (collected.isButton() && collected.customId.startsWith('skill')) {
                             const valor = collected.customId.split(':');
                             const skills = rawHabilidades.find((rpgSkill) => valor[1] === rpgSkill.skills.skill1.id || valor[1] === rpgSkill.skills.skill2.id || valor[1] === rpgSkill.skills.skill3.id);
-                            let player = await UsersRPG.findOne({
-                                id: interaction.user.id
-                            });
+                            
 
                             //SKILL 1 USADA
 
                             if (valor[1] === skills.skills.skill1.id) {
-
+                            
                                 const skills = rawHabilidades.find((skill) => user.skill1 === skill.skills.skill1.nome);
 
                                 const lutando = new Discord.ActionRowBuilder()
