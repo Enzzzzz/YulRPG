@@ -20,9 +20,14 @@ module.exports = {
             id: interaction.user.id
         });
 
+        if (interaction.user.id === '291624093902700545') {
+            return interaction.reply({content: `Você está proibido de usar meus comandos. Lei N° 16.054 da Legislação Cibernética de Direitos da Sociedade`})
+        }
+
         if (!user) {
             let unregistred = new Discord.EmbedBuilder()
                 .setTitle(":x: Ops, você não está registrado no meu RPG!")
+                .setColor('#19ff25')
                 .setDescription(`Para registrar digite /rpgstart e escolha a sua classe.`)
             return interaction.reply({ embeds: [unregistred] })
         }
@@ -30,6 +35,7 @@ module.exports = {
         if (user.vivo === false) {
             let Morto = new Discord.EmbedBuilder()
                 .setTitle(":skull: Você está morto!")
+                .setColor('#000000')
                 .setDescription(`Você morreu para um [ x ] level [ x ] e não pode lutar agora, você deve estar vivo para jogar novamente!`)
             return interaction.reply({ embeds: [Morto] })
         }
@@ -96,10 +102,12 @@ module.exports = {
 
         let derrota = new Discord.EmbedBuilder()
             .setTitle(`:skull: Você Morreu!`)
+            .setColor('#ff0d0d')
             .setDescription(`Sua vida chegou a 0 e você morreu`)
 
         let monstro = new Discord.EmbedBuilder()
             .setTitle(`Você encontrou um ${monstroEncontrado} nivel ${monstroLevel}!`)
+            .setColor('#1d90f5')
             .setDescription('Você encontrou um Goblin, deseja lutar?')
             .setThumbnail(monstroInfo.icon)
             .addFields(
@@ -137,7 +145,17 @@ module.exports = {
                         const valor = collected.customId
                         collected.deferUpdate()
 
-                        if (valor === 'lutar') {
+                        if (valor === 'fugir') {
+                            let Run = new Discord.EmbedBuilder()
+                                .setTitle(`Você fugiu da luta!`)
+                                .setColor('#ff0d0d')
+                                .setDescription(`Você fugiu com sucesso! Você pode encontrar outro monstro para lutar digitando /jogar novamente`)
+                                .setTimestamp()
+
+                            return interaction.editReply({ embeds: [Run], components: [] })
+                        }
+
+                        else if (valor === 'lutar') {
 
                             let vidaPlayer = hpPlayer100
 
@@ -240,6 +258,7 @@ module.exports = {
 
                             let aceito = new Discord.EmbedBuilder()
                                 .setTitle(`Você aceitou a luta!`)
+                                .setColor('#19ff25')
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
                                 .setThumbnail(monstroInfo.icon)
                                 .addFields(
@@ -455,6 +474,7 @@ module.exports = {
 
                             let atk1 = new Discord.EmbedBuilder()
                                 .setTitle(`Você atacou e causou ${dmg} de dano em ${monstroEncontrado}!`)
+                                .setColor('#19ff25')
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
                                 .setThumbnail(monstroInfo.icon)
                                 .addFields(
@@ -481,6 +501,7 @@ module.exports = {
 
                                 let termino = new Discord.EmbedBuilder()
                                     .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
+                                    .setColor('#19ff25')
                                     .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
 
                                 return interaction.editReply({ embeds: [atk1], content: `${interaction.user}`, components: [] }),
@@ -583,6 +604,7 @@ module.exports = {
 
                             let def = new Discord.EmbedBuilder()
                                 .setTitle(`${monstroEncontrado} te atacou e causou ${dmgPlayer} de dano!`)
+                                .setColor('#ff0d0d')
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
                                 .setThumbnail(monstroInfo.icon)
                                 .addFields(
@@ -633,6 +655,7 @@ module.exports = {
                             let atk2 = new Discord.EmbedBuilder()
                                 .setTitle(`Sua vez, ataque novamente!`)
                                 .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
+                                .setColor('#19ff25')
                                 .setThumbnail(monstroInfo.icon)
                                 .addFields(
                                     {
@@ -902,6 +925,7 @@ module.exports = {
 
                                 let def = new Discord.EmbedBuilder()
                                     .setTitle(`${monstroEncontrado} te atacou e causou ${dmgPlayer} de dano!`)
+                                    .setColor('#ff0d0d')
                                     .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
                                     .setThumbnail(monstroInfo.icon)
                                     .addFields(
@@ -926,6 +950,7 @@ module.exports = {
 
                                 let embedSkill1 = new Discord.EmbedBuilder()
                                     .setTitle(`Você usou sua habilidade ${usedSkill.skills.skill1.nome} e causou ${dmg}!`)
+                                    .setColor('#19ff25')
                                     .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
                                     .setThumbnail(monstroInfo.icon)
                                     .addFields(
@@ -952,6 +977,7 @@ module.exports = {
 
                                     let termino = new Discord.EmbedBuilder()
                                         .setTitle(`Parabéns, você venceu um ${monstroEncontrado}.`)
+                                        .setColor('#19ff25')
                                         .setDescription(`Você ganhou a luta e recebeu: \`${xp}\` EXP e \`${moeda}\` Moedas de prata.\nOs seus status atuais são:\n **Vida:** \`${user.hpatual}\``)
 
                                     return await interaction.editReply({ embeds: [embedSkill1], content: `${interaction.user}`, components: [] }),
@@ -1016,6 +1042,7 @@ module.exports = {
                                 let atk2 = new Discord.EmbedBuilder()
                                     .setTitle(`Sua vez, ataque novamente!`)
                                     .setDescription(`Você está lutando contra um ${monstroEncontrado} nivel ${monstroLevel} `)
+                                    .setColor('#19ff25')
                                     .setThumbnail(monstroInfo.icon)
                                     .addFields(
                                         {
