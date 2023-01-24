@@ -13,7 +13,7 @@
                 "danoPL": 12,
                 "cooldown": 3,
                 "icon": "",
-                "cost": 0,
+                "cost": 6,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
@@ -152,7 +152,7 @@
                 "danoPL": 20,
                 "cooldown": 5,
                 "icon": "",
-                "cost": 0,
+                "cost": 6,
                 "buff": {
                     "type": "Nenhum",
                     "duration": 0
