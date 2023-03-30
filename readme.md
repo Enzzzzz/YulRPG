@@ -23,15 +23,13 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 ## 🚀 Instalando YulRPG
 
-Para instalar a <YulRPG>, siga estas etapas:
+Para instalar a YulRPG, siga estas etapas:
 
-Windows:
-
-```
-git init
-git clone https://github.com/Enzzzzz/YulRPG.git
-```
-
+- git clone https://github.com/Enzzzzz/YulRPG.git
 - Utilize `cd YulRPG` para entrar na pasta caso tenha dado clone
 - Baixe as dependências com `npm install`
 - Copie o `.env.example` para `.env` e configure-o
+
+## Para mais informações acesse:
+
+-  - [YulBot Website](https://yulbot.vercel.app/RPG)
